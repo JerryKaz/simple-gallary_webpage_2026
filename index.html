@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Gallery 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Preload critical assets if necessary -->
+</head>
+<body>
+
+    <!-- Navigation / Header -->
+    <header class="glass-header">
+        <div class="container header-content">
+            <h1>Gallery</h1>
+            <nav>
+                <!-- Placeholder for nav links -->
+                <a href="#" class="active">Discover</a>
+                <a href="#">Albums</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 
+            SECTION 1: HERO CAROUSEL 
+            Uses native CSS Scroll Snap for superior touch performance.
+        -->
+        <section class="carousel-section" aria-label="Featured Gallery">
+            <div class="carousel-wrapper">
+                
+                <!-- Controls: Hidden on touch, visible on desktop hover -->
+                <button class="nav-btn prev" aria-label="Previous Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="nav-btn next" aria-label="Next Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+
+                <!-- Scroll Container -->
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- Slide 1 -->
+                    <!-- REPLACE src with your image (rec: 1600x900) -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop" alt="Mountain landscape at sunrise" loading="eager">
+                        <div class="slide-caption glass-panel">
+                            <h2>Alpine Solitude</h2>
+                            <p>Captured in the Swiss Alps, 2025.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2070&auto=format&fit=crop" alt="Serene lake reflection" loading="lazy">
+                        <div class="slide-caption glass-panel">
+                            <h2>Mirror Lake</h2>
+                            <p>Nature's perfect reflection.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop" alt="Coastal horizon" loading="lazy">
+                        <div class="slide-caption glass-panel">
+                            <h2>Pacific Edge</h2>
+                            <p>Where the ocean meets the sky.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            SECTION 2: EXPANDABLE CARD GRID
+            Cards expand vertically to reveal details on click/tap.
+        -->
+        <section class="grid-section" aria-label="Image Collection">
+            <div class="container">
+                <h3>Collection</h3>
+                <div class="gallery-grid">
+
+                    <!-- Card 1 -->
+                    <!-- REPLACE src with your image (rec: 600x800) -->
+                    <article class="card" tabindex="0" aria-expanded="false">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=1000&auto=format&fit=crop" alt="Architecture detail" loading="lazy">
+                            <div class="card-badge">New</div>
+                        </div>
+                        <div class="card-content">
+                            <h4>Modern Structure</h4>
+                            <p class="card-subtitle">Architecture</p>
+                            
+                            <!-- Hidden content revealed on interaction -->
+                            <div class="hidden-details">
+                                <p>This structure demonstrates the interplay between light and geometric forms. Built using sustainable materials, it represents the future of urban living.</p>
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="card" tabindex="0" aria-expanded="false">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1526749837599-b4eba9fd855e?q=80&w=1000&auto=format&fit=crop" alt="Abstract fluid art" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h4>Fluid Dynamics</h4>
+                            <p class="card-subtitle">Abstract</p>
+                            <div class="hidden-details">
+                                <p>An exploration of color and viscosity. High-speed photography captures the moment liquids collide in mid-air.</p>
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="card" tabindex="0" aria-expanded="false">
+                        <div class="card-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Minimalist interior" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h4>Interior Calm</h4>
+                            <p class="card-subtitle">Design</p>
+                            <div class="hidden-details">
+                                <p>Minimalism isn't about having less. It's about making room for more of what matters. A study in white and wood.</p>
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                       <!-- Card 4 -->
+                    <article class="card" tabindex="0" aria-expanded="false">
+                        <div class="card-image-wrapper">
+                            <img src="https://i.pinimg.com/736x/d7/6b/b1/d76bb1211de3bbba8494958f0b11bd20.jpg" alt="Minimalist interior" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h4>Interior Calm</h4>
+                            <p class="card-subtitle">Design</p>
+                            <div class="hidden-details">
+                                <p>Minimalism isn't about having less. It's about making room for more of what matters. A study in white and wood.</p>
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                      <article class="card" tabindex="0" aria-expanded="false">
+                        <div class="card-image-wrapper">
+                            <img src="https://i.pinimg.com/736x/aa/6c/87/aa6c87791c2ce4a20dff1c3b28e39827.jpg" alt="Minimalist interior" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h4>Interior Calm</h4>
+                            <p class="card-subtitle">Design</p>
+                            <div class="hidden-details">
+                                <p>Minimalism isn't about having less. It's about making room for more of what matters. A study in white and wood.</p>
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- DUPLICATE cards above to add more items -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gallery Concept. Designed with simplicity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

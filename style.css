@@ -1,0 +1,312 @@
+/* 
+    VARIABLES & RESET 
+    Apple HIG Color Palette & Spacing 
+*/
+:root {
+    --bg-color: #F5F5F7; /* Apple off-white */
+    --card-bg: #FFFFFF;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --accent: #0071E3; /* Apple Blue */
+    --radius: 18px;
+    --spacing: 20px;
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
+    --transition-spring: cubic-bezier(0.25, 1, 0.5, 1); /* Physics-based smooth easing */
+    --glass: rgba(255, 255, 255, 0.75);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #000000;
+        --card-bg: #1C1C1E;
+        --text-primary: #F5F5F7;
+        --text-secondary: #86868B;
+        --glass: rgba(28, 28, 30, 0.75);
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased; /* Crisp text on Mac */
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* 
+   LAYOUT UTILITIES 
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+/* 
+   HEADER (Glassmorphism)
+*/
+.glass-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+h1 { font-size: 1.2rem; font-weight: 600; }
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: var(--spacing);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a.active, nav a:hover { color: var(--accent); }
+
+/* 
+   SECTION 1: CAROUSEL 
+*/
+.carousel-section {
+    padding-block: 20px;
+    position: relative;
+}
+
+.carousel-wrapper {
+    position: relative;
+    /* Allow buttons to sit over image */
+}
+
+/* Scroll Snap Container */
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 0 max(20px, calc((100vw - 1200px) / 2)); /* Center slides on wide screens */
+    
+    /* Hide Scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE */
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+.slide {
+    flex: 0 0 90vw; /* Mobile: 90% width */
+    height: 60vh;
+    min-height: 400px;
+    scroll-snap-align: center;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+    .slide { flex: 0 0 80%; }
+}
+
+@media (min-width: 1024px) {
+    .slide { flex: 0 0 60%; }
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s var(--transition-spring);
+}
+
+/* Image Scale Effect on Hover */
+.slide:hover img { transform: scale(1.03); }
+
+.slide-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 16px;
+    border-radius: 12px;
+    max-width: 400px;
+}
+
+.slide-caption h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.slide-caption p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Carousel Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s, transform 0.2s;
+    opacity: 0; /* Hidden by default for touch-first feel */
+}
+
+/* Show buttons on hover (Desktop) */
+.carousel-wrapper:hover .nav-btn { opacity: 1; }
+.nav-btn:hover { transform: translateY(-50%) scale(1.1); }
+.nav-btn:active { transform: translateY(-50%) scale(0.95); }
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* 
+   SECTION 2: GRID & CARDS 
+*/
+.grid-section { padding-block: 40px 80px; }
+.grid-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Card Structure */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s var(--transition-spring), box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Hover State */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Focus State for Accessibility */
+.card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.card-image-wrapper {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s var(--transition-spring);
+}
+
+.card-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+}
+
+.card-content { padding: 20px; }
+
+.card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+    transition: opacity 0.3s;
+}
+
+/* 
+   EXPANDABLE LOGIC 
+*/
+.hidden-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s var(--transition-spring), opacity 0.4s ease;
+    opacity: 0;
+}
+
+.hidden-details > * { overflow: hidden; }
+
+/* Expanded State Class */
+.card.expanded .hidden-details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.card.expanded img { transform: scale(1.05); }
+
+.action-btn {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--bg-color);
+    color: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.action-btn:hover { background: rgba(0, 113, 227, 0.1); }
