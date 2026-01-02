@@ -93,7 +93,7 @@ nav a.active, nav a:hover { color: var(--accent); }
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 16px;
+    gap: 15px;
     padding: 0 max(20px, calc((100vw - 1200px) / 2)); /* Center slides on wide screens */
     
     scrollbar-width: none; 
@@ -136,14 +136,14 @@ nav a.active, nav a:hover { color: var(--accent); }
     background: var(--glass);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    padding: 16px;
+    padding: 15px;
     border-radius: 12px;
     max-width: 400px;
 }
 
 .slide-caption h2 {
     font-size: 1.1rem;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 .slide-caption p {
     font-size: 0.9rem;
@@ -158,8 +158,8 @@ nav a.active, nav a:hover { color: var(--accent); }
     z-index: 10;
     background: rgba(255,255,255,0.9);
     border: none;
-    width: 44px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
     cursor: pointer;
@@ -181,13 +181,13 @@ nav a.active, nav a:hover { color: var(--accent); }
 .grid-section { padding-block: 40px 80px; }
 .grid-section h3 {
     font-size: 1.8rem;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    gap: 25px;
 }
 
 .card {
@@ -205,10 +205,9 @@ nav a.active, nav a:hover { color: var(--accent); }
     box-shadow: var(--shadow-md);
 }
 
-/* Focus State for Accessibility */
 .card:focus-visible {
     outline: 3px solid var(--accent);
-    outline-offset: 4px;
+    outline-offset: 5px;
 }
 
 .card-image-wrapper {
@@ -231,9 +230,9 @@ nav a.active, nav a:hover { color: var(--accent); }
     color: white;
     font-size: 0.7rem;
     font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 6px;
-    backdrop-filter: blur(4px);
+    padding: 5px 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
 }
 
 .card-content { padding: 20px; }
@@ -241,7 +240,7 @@ nav a.active, nav a:hover { color: var(--accent); }
 .card h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .card-subtitle {
@@ -251,9 +250,6 @@ nav a.active, nav a:hover { color: var(--accent); }
     transition: opacity 0.3s;
 }
 
-/* 
-   EXPANDABLE LOGIC 
-*/
 .hidden-details {
     display: grid;
     grid-template-rows: 0fr;
@@ -263,12 +259,11 @@ nav a.active, nav a:hover { color: var(--accent); }
 
 .hidden-details > * { overflow: hidden; }
 
-/* Expanded State Class */
 .card.expanded .hidden-details {
     grid-template-rows: 1fr;
     opacity: 1;
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
@@ -280,7 +275,7 @@ nav a.active, nav a:hover { color: var(--accent); }
     background: var(--bg-color);
     color: var(--accent);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
@@ -288,4 +283,4 @@ nav a.active, nav a:hover { color: var(--accent); }
     transition: background 0.2s;
 }
 
-.action-btn:hover { background: rgba(0, 113, 227, 0.1); }
+.action-btn:hover { background: rgba(0, 115, 230, 0.1); }
