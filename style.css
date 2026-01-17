@@ -1,22 +1,18 @@
-/* 
-    VARIABLES & RESET 
-    Apple HIG Color Palette & Spacing 
-*/
 :root {
-    --bg-color: #F5F5F7; /* Apple off-white */
+    --bg-color: #F5F5F7; 
     --card-bg: #FFFFFF;
     --text-primary: #1D1D1F;
     --text-secondary: #86868B;
-    --accent: #0071E3; /* Apple Blue */
+    --accent: #0071E3; 
     --radius: 18px;
     --spacing: 20px;
-    --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-sm: 0 5px 12px rgba(0,0,0,0.06);
     --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
     --transition-spring: cubic-bezier(0.25, 1, 0.5, 1); /* Physics-based smooth easing */
     --glass: rgba(255, 255, 255, 0.75);
 }
 
-/* Dark Mode Support */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #000000;
@@ -47,18 +43,12 @@ img {
     object-fit: cover;
 }
 
-/* 
-   LAYOUT UTILITIES 
-*/
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing);
 }
 
-/* 
-   HEADER (Glassmorphism)
-*/
 .glass-header {
     position: sticky;
     top: 0;
@@ -88,9 +78,6 @@ nav a {
 
 nav a.active, nav a:hover { color: var(--accent); }
 
-/* 
-   SECTION 1: CAROUSEL 
-*/
 .carousel-section {
     padding-block: 20px;
     position: relative;
@@ -98,26 +85,24 @@ nav a.active, nav a:hover { color: var(--accent); }
 
 .carousel-wrapper {
     position: relative;
-    /* Allow buttons to sit over image */
+
 }
 
-/* Scroll Snap Container */
 .carousel-track {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    gap: 16px;
+    gap: 15px;
     padding: 0 max(20px, calc((100vw - 1200px) / 2)); /* Center slides on wide screens */
     
-    /* Hide Scrollbar */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .slide {
-    flex: 0 0 90vw; /* Mobile: 90% width */
+    flex: 0 0 90vw; 
     height: 60vh;
     min-height: 400px;
     scroll-snap-align: center;
@@ -141,7 +126,6 @@ nav a.active, nav a:hover { color: var(--accent); }
     transition: transform 0.6s var(--transition-spring);
 }
 
-/* Image Scale Effect on Hover */
 .slide:hover img { transform: scale(1.03); }
 
 .slide-caption {
@@ -152,21 +136,21 @@ nav a.active, nav a:hover { color: var(--accent); }
     background: var(--glass);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    padding: 16px;
-    border-radius: 12px;
+    padding: 15px;
+    border-radius: 10px;
     max-width: 400px;
 }
 
 .slide-caption h2 {
     font-size: 1.1rem;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 .slide-caption p {
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
 
-/* Carousel Buttons */
+
 .nav-btn {
     position: absolute;
     top: 50%;
@@ -174,8 +158,8 @@ nav a.active, nav a:hover { color: var(--accent); }
     z-index: 10;
     background: rgba(255,255,255,0.9);
     border: none;
-    width: 44px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
     cursor: pointer;
@@ -183,10 +167,9 @@ nav a.active, nav a:hover { color: var(--accent); }
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s, transform 0.2s;
-    opacity: 0; /* Hidden by default for touch-first feel */
+    opacity: 0;
 }
 
-/* Show buttons on hover (Desktop) */
 .carousel-wrapper:hover .nav-btn { opacity: 1; }
 .nav-btn:hover { transform: translateY(-50%) scale(1.1); }
 .nav-btn:active { transform: translateY(-50%) scale(0.95); }
@@ -194,22 +177,19 @@ nav a.active, nav a:hover { color: var(--accent); }
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* 
-   SECTION 2: GRID & CARDS 
-*/
+
 .grid-section { padding-block: 40px 80px; }
 .grid-section h3 {
     font-size: 1.8rem;
-    margin-bottom: 24px;
+    margin-bottom: 25px;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    gap: 25px;
 }
 
-/* Card Structure */
 .card {
     background: var(--card-bg);
     border-radius: var(--radius);
@@ -220,16 +200,14 @@ nav a.active, nav a:hover { color: var(--accent); }
     position: relative;
 }
 
-/* Hover State */
 .card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
 }
 
-/* Focus State for Accessibility */
 .card:focus-visible {
     outline: 3px solid var(--accent);
-    outline-offset: 4px;
+    outline-offset: 5px;
 }
 
 .card-image-wrapper {
@@ -248,13 +226,13 @@ nav a.active, nav a:hover { color: var(--accent); }
     position: absolute;
     top: 12px;
     right: 12px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.5);
     color: white;
     font-size: 0.7rem;
     font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 6px;
-    backdrop-filter: blur(4px);
+    padding: 5px 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
 }
 
 .card-content { padding: 20px; }
@@ -262,7 +240,7 @@ nav a.active, nav a:hover { color: var(--accent); }
 .card h4 {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .card-subtitle {
@@ -272,9 +250,6 @@ nav a.active, nav a:hover { color: var(--accent); }
     transition: opacity 0.3s;
 }
 
-/* 
-   EXPANDABLE LOGIC 
-*/
 .hidden-details {
     display: grid;
     grid-template-rows: 0fr;
@@ -284,24 +259,23 @@ nav a.active, nav a:hover { color: var(--accent); }
 
 .hidden-details > * { overflow: hidden; }
 
-/* Expanded State Class */
 .card.expanded .hidden-details {
     grid-template-rows: 1fr;
     opacity: 1;
-    margin-top: 16px;
-    padding-top: 16px;
+    margin-top: 15px;
+    padding-top: 15px;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .card.expanded img { transform: scale(1.05); }
 
 .action-btn {
-    margin-top: 12px;
-    padding: 8px 16px;
+    margin-top: 10px;
+    padding: 10px 16px;
     background: var(--bg-color);
     color: var(--accent);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
@@ -309,4 +283,4 @@ nav a.active, nav a:hover { color: var(--accent); }
     transition: background 0.2s;
 }
 
-.action-btn:hover { background: rgba(0, 113, 227, 0.1); }
+.action-btn:hover { background: rgba(0, 115, 230, 0.1); }
